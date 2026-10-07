@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>UniBooks — Kitob va O'quv Qurollari Bozori</title>
+  <!-- Brauzer tabidagi ikonka: SVG Data URI (alohida fayl kerak emas) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%236366F1'/><stop offset='1' stop-color='%238B5CF6'/></linearGradient></defs><rect width='100' height='100' rx='28' fill='url(%23g)'/><path fill='none' d='M25 68C25 62 35 58 50 58C65 58 75 62 75 68M25 68V42C25 36 35 32 50 32C65 32 75 36 75 42V68' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><path d='M50 20L78 32L50 44L22 32L50 20Z' fill='white'/><path fill='none' d='M75 38V48' stroke='white' stroke-width='4' stroke-linecap='round'/></svg>">
+  <meta name="theme-color" content="#6366F1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- HEADER: logo, live search, wishlist / cart / theme / profile -->
+    <header>
+      <div class="bar glass">
+        <a href="#" class="logo-brand" aria-label="UniBooks — bosh sahifa"
+          style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0;">
+          <div class="logo-icon-box"
+            style="width: 36px; height: 36px; background: linear-gradient(135deg, #6366F1, #8B5CF6); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25); flex-shrink: 0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true" style="display: block;">
+              <path
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="logo-text"
+            style="font-size: 22px; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.5px; line-height: 1; white-space: nowrap;">
+            <span style="color: var(--text);">Uni</span><span
+              style="background: linear-gradient(135deg, #6366F1, #8B5CF6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Books</span>
+          </span>
+        </a>
+        <div class="locw"><button class="btn ghost loc" id="bLoc" aria-haspopup="true"><i data-i="pin"></i><span
+              id="locT">Toshkent</span><i data-i="chev"></i></button>
+          <div class="locm" id="locM"></div>
+        </div>
+        <div class="search">
+          <input id="q" type="search" placeholder="Kitob, muallif yoki fan qidiring..." autocomplete="off"
+            aria-label="Qidiruv">
+          <div class="results glass" id="live"></div>
+        </div>
+        <button class="btn ghost" id="bFlt" style="padding:10px 14px;position:relative"><i data-i="filter"></i><span
+            class="fl"> Filtr</span><span class="dot" id="cFlt" style="display:none">0</span></button>
+        <button class="btn ghost" id="bLb" style="padding:10px 14px"><i data-i="trophy"></i><span class="fl">
+            Reyting</span></button>
+        <button class="icon ghost" id="bWish" aria-label="Saqlanganlar"><i data-i="heart"></i><span class="dot"
+            id="cWish">0</span></button>
+        <button class="icon ghost" id="bCart" aria-label="Savat"><i data-i="cart"></i><span class="dot"
+            id="cCart">0</span></button>
+        <button class="icon ghost" id="bTheme" aria-label="Rejim"><i data-i="moon"></i></button>
+        <button class="icon ghost" id="bUser" aria-label="Profil"><i data-i="user"></i></button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Bitirgan kitobingiz <span>yangi egasini</span> kutmoqda</h1>
+      <p>Maktab va abituriyentlar uchun kitob bozori. Sotuvchi bilan to‘g‘ridan-to‘g‘ri Telegramda gaplashing,
+        komissiyasiz.</p>
+      <div class="cta">
+        <button class="btn primary" onclick="document.getElementById('grid').scrollIntoView({behavior:'smooth'})">Kitob
+          qidirish</button>
+        <button class="btn ghost" id="bAdd">E’lon joylash (+ Bepul)</button>
+      </div>
+    </section>
+
+    <div class="trust rise"><span><b>1,200+</b> kitob</span><span><b>50+</b> maktab</span><span><b>100%</b> bepul
+        e’lonlar</span></div>
+    <!-- FILTER PILLS -->
+    <nav class="pills" id="pills" aria-label="Kategoriyalar"></nav>
+
+    <!-- PRODUCT GRID -->
+    <main class="grid" id="grid" aria-live="polite"></main>
+  </div>
+
+  <!-- ADD PRODUCT MODAL: 2 bosqich -->
+  <div class="veil" id="addVeil">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="E’lon joylash">
+      <h2>E’lon joylash</h2>
+      <div class="steps"><i class="on"></i><i id="s2"></i></div>
+      <div id="step1">
+        <div class="drop" id="drop"><i data-i="upload"></i><br>Rasmni shu yerga tashlang yoki bosing</div><input
+          type="file" id="file" accept="image/*" hidden>
+        <label for="fTitle">Kitob nomi</label><input class="in" id="fTitle">
+        <label for="fSubj">Kategoriya</label>
+        <select class="in" id="fCat"></select>
+        <div class="two">
+          <div><label for="fGrade">Sinf / bosqich</label><select class="in" id="fGrade"></select></div>
+          <div><label for="fSubj2">Fan turi</label><select class="in" id="fSubj2"></select></div>
+        </div>
+        <label for="fCond">Holati: <b id="condV">8</b>/10</label>
+        <input type="range" id="fCond" min="1" max="10" value="8" style="width:100%;accent-color:#7c3aed">
+        <label for="fPrice">Narx (so‘m, 0 = bepul)</label><input class="in" id="fPrice" type="number" min="0"
+          step="1000">
+        <label for="fNote">Izoh (ixtiyoriy)</label><input class="in" id="fNote" maxlength="120"
+          placeholder="Masalan: yozuvlari yo‘q, toza">
+        <label class="chk"><input type="checkbox" id="fSwap"><i data-i="swap"></i> Kitobni almashtirishga
+          roziman</label>
+        <div class="row"><button class="btn ghost" data-close>Bekor qilish</button><button class="btn primary"
+            id="next">Keyingisi</button></div>
+      </div>
+      <div id="step2" hidden>
+        <label for="fName">Ismingiz</label><input class="in" id="fName">
+        <label for="fTg">Telegram username</label><input class="in" id="fTg" placeholder="@username">
+        <label for="fSchool">Maktab / tuman</label><input class="in" id="fSchool"
+          placeholder="Masalan: 17-IDUM, Chilonzor">
+        <div class="two">
+          <div><label for="fReg">Viloyat</label><select class="in" id="fReg"></select></div>
+          <div><label for="fDist">Tuman</label><select class="in" id="fDist"></select></div>
+        </div>
+        <div class="row"><button class="btn ghost" id="back">Orqaga</button><button class="btn primary"
+            id="publish">E’lonni joylash</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER MODAL -->
+  <div class="veil" id="fltVeil">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Filtrlar">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Filtrlar</h2><button class="icon" data-close aria-label="Yopish"><i data-i="x"></i></button>
+      </div>
+      <label>Sinf / bosqich</label>
+      <div class="chips" id="fG"></div>
+      <label>Fan</label>
+      <div class="chips" id="fS"></div>
+      <label for="xReg">Viloyat</label><select class="in" id="xReg"></select>
+      <label for="xDist">Tuman</label><select class="in" id="xDist"></select>
+      <label>Narx: <b id="xPrice"></b></label><input type="range" id="pMin" min="0" max="300000" step="5000"
+        aria-label="Minimal narx"><input type="range" id="pMax" min="0" max="300000" step="5000"
+        aria-label="Maksimal narx">
+      <div class="row"><button class="btn ghost" id="fClear">Tozalash</button><button class="btn primary" id="fApply"
+          data-close>Natijalar</button></div>
+    </div>
+  </div>
+  <!-- SOTUVCHI PROFILI + SHARHLAR -->
+  <div class="veil" id="revVeil">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Sotuvchi profili">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Sotuvchi profili</h2><button class="icon" data-close aria-label="Yopish"><i data-i="x"></i></button>
+      </div>
+      <div id="revBody"></div>
+    </div>
+  </div>
+  <!-- QUICK VIEW -->
+  <div class="veil" id="qvVeil">
+    <div class="modal qv" role="dialog" aria-modal="true" aria-label="Kitob tafsilotlari"><button class="icon qx"
+        data-close aria-label="Yopish"><i data-i="x"></i></button>
+      <div id="qvBody"></div>
+    </div>
+  </div>
+  <!-- REYTING -->
+  <div class="veil" id="lbVeil">
+    <div class="modal prof" role="dialog" aria-modal="true" aria-label="Reyting">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Maktablar va Kitobxonlar reytingi</h2><button class="icon" data-close aria-label="Yopish"><i
+            data-i="x"></i></button>
+      </div>
+      <div class="tabs"><button data-lt="sch" class="on">Top Maktablar</button><button data-lt="usr">Top
+          O‘quvchilar</button></div>
+      <div id="lbBody"></div>
+    </div>
+  </div>
+  <!-- PROFIL MODAL: ma'lumotlar, e'lonlarim, saqlanganlar, statistika -->
+  <div class="veil" id="profVeil">
+    <div class="modal prof" role="dialog" aria-modal="true" aria-label="Profil">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2>Profil va sozlamalar</h2><button class="icon" data-close aria-label="Yopish"><i data-i="x"></i></button>
+      </div>
+      <div class="tabs"><button data-t="info">Ma’lumotlar</button><button data-t="mine">Mening
+          e’lonlarim</button><button data-t="wish">Saqlanganlar</button><button data-t="stat">Statistika</button></div>
+      <div id="pBody"></div>
+    </div>
+  </div>
+  <!-- AUTH MODAL: Google / Telegram / Mehmon (demo; haqiqiy auth uchun Supabase Auth ulanadi) -->
+  <div class="veil" id="authVeil">
+    <div class="modal auth" role="dialog" aria-modal="true" aria-label="Kirish">
+      <div class="logo" style="font-size:28px">Uni<b>Books</b></div>
+      <h2>Kitob bozoriga xush kelibsiz</h2>
+      <p class="muted">Saqlash, e’lon joylash va sotuvchi bilan bog‘lanish uchun hisobingizga kiring.</p>
+      <button class="btn gbtn" data-login="google"><svg viewBox="0 0 48 48">
+          <path fill="#EA4335"
+            d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z" />
+          <path fill="#4285F4"
+            d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.6 5.9c4.4-4.1 7-10.1 7-17.6z" />
+          <path fill="#FBBC05"
+            d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l7.9-6.1z" />
+          <path fill="#34A853"
+            d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z" />
+        </svg>Google bilan davom etish</button>
+      <button class="btn tg" data-login="telegram"><svg viewBox="0 0 24 24">
+          <path
+            d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.3-.07-.47-.52-.16l-9.49 5.98-4.09-1.28c-.89-.28-.89-.89.19-1.32l15.95-6.15c.74-.33 1.45.18 1.17 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.14-3.06-1.99 1.93c-.23.23-.42.42-.83.42z" />
+        </svg>Telegram orqali kirish</button>
+      <div class="or">yoki</div>
+      <button class="btn ghost" data-login="guest"><i data-i="eye"></i>Mehmon sifatida ko‘rish</button>
+    </div>
+  </div>
+  <!-- DRAWER: Saqlanganlar / Savat -->
+  <div class="veil" id="dVeil"></div>
+  <aside class="drawer" id="drawer">
+    <div style="display:flex;justify-content:space-between">
+      <h2 id="dTitle"></h2><button class="icon" data-close aria-label="Yopish"><i data-i="x"></i></button>
+    </div>
+    <div id="dBody"></div>
+    
+  </aside>
+  <div id="toasts" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

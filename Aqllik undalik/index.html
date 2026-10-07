@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aqlli kundalik</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="side">
+      <h1>Aqlli kundalik</h1>
+      <section class="cal">
+        <div class="cal-head">
+          <button id="prevMonth" aria-label="Oldingi oy">‹</button>
+          <strong id="monthTitle"></strong>
+          <button id="nextMonth" aria-label="Keyingi oy">›</button>
+        </div>
+        <div id="calGrid" class="cal-grid"></div>
+      </section>
+      <h2>Yozuvlar</h2>
+      <ul id="entryList" class="entry-list"></ul>
+    </aside>
+
+    <main class="main">
+      <header class="editor-head">
+        <div>
+          <h2 id="dateTitle"></h2>
+          <p class="sub">Bugun qanday o‘tdi? Erkin yozing.</p>
+        </div>
+        <span id="moodBadge" class="badge" data-mood="none">Kayfiyat: —</span>
+      </header>
+
+      <textarea id="editor" placeholder="Bugun nima bo‘ldi? Nimani his qildingiz?"></textarea>
+
+      <div class="actions">
+        <button id="saveBtn" class="primary">Saqlash</button>
+        <button id="deleteBtn" class="ghost">O‘chirish</button>
+        <span id="toast" class="toast" role="status"></span>
+      </div>
+
+      <section class="chart-card">
+        <div class="chart-head">
+          <h2>Kayfiyat dinamikasi</h2>
+          <div class="seg">
+            <button data-range="7" class="on">Hafta</button>
+            <button data-range="30">Oy</button>
+          </div>
+        </div>
+        <div class="chart-wrap"><canvas id="moodChart"></canvas></div>
+      </section>
+
+      <p class="privacy">🔒 Xavfsiz va maxfiy: barcha yozuvlar faqat sizning qurilmangizda (brauzer xotirasida)
+        saqlanadi. Hech qayerga yuborilmaydi.</p>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

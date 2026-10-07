@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#f7f6f2">
+
+    <link rel="icon" href="favicon.svg">
+
+    <title>TIMA SHOP — Erkaklar kiyimi</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- TOP ANNOUNCEMENT -->
+    <div class="announcement">
+        Toshkent bo‘ylab yetkazib berish · 31 000+ mijoz ishonchi
+    </div>
+
+
+    <!-- HEADER -->
+    <header>
+
+        <a class="brand" href="#home">
+            <i>T</i>
+
+            <span>
+                <b>TIMA<span>SHOP</span></b>
+                <small>STYLE FOR EVERY DAY</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="#home">Bosh sahifa</a>
+            <a href="#catalog">Katalog</a>
+            <a href="#about">Biz haqimizda</a>
+            <a href="#contact">Aloqa</a>
+        </nav>
+
+        <div class="actions">
+
+            <button id="searchBtn">⌕</button>
+
+            <button id="favBtn">
+                ♡
+                <sup id="favCount">0</sup>
+            </button>
+
+            <button id="cartBtn">
+                🛒
+                <sup id="cartCount">0</sup>
+            </button>
+
+            <button id="menuBtn">☰</button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" id="home">
+
+            <div>
+
+                <small class="eyebrow">
+                    — YANGI MAVSUM · 2026
+                </small>
+
+                <h1>
+                    Har kuningizga<br>
+                    <em>o‘ziga xos</em> uslub.
+                </h1>
+
+                <p>
+                    O‘zingizga mos obrazni TIMA SHOP bilan yarating.
+                    Kundalik hayot uchun tanlangan zamonaviy erkaklar kiyimlari.
+                </p>
+
+                <div class="heroBtns">
+
+                    <a class="btn" href="#catalog">
+                        Katalogni ko‘rish ↗
+                    </a>
+
+                    <a href="#about">
+                        Biz haqimizda →
+                    </a>
+
+                </div>
+
+                <small class="note">
+                    ✦ ✦ ✦ &nbsp; USLUB · SIFAT · QULAYLIK
+                </small>
+
+            </div>
+
+
+            <div class="heroImg">
+
+                <img src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=1400&q=88"
+                    alt="TIMA SHOP">
+
+                <b>
+                    NEW<br>
+                    COLLECTION<br>
+                    ’26
+                </b>
+
+                <label>
+                    01 / 03
+                    <span>EVERYDAY MENSWEAR</span>
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATS -->
+        <div class="stats">
+
+            <div>
+                <b>3 yil</b>
+                tajriba
+            </div>
+
+            <div>
+                <b>31 000+</b>
+                mijoz ishonchi
+            </div>
+
+            <div>
+                <b>86,6K</b>
+                Instagram obunachisi
+            </div>
+
+        </div>
+
+
+        <!-- CATALOG -->
+        <section class="section" id="catalog">
+
+            <div class="heading">
+
+                <div>
+
+                    <small class="eyebrow">
+                        — TANLOV SIZNIKI
+                    </small>
+
+                    <h2>
+                        Bizning <em>katalog</em>
+                    </h2>
+
+                </div>
+
+                <p>
+                    Har bir obraz uchun o‘zingizga mos tanlov.
+                </p>
+
+            </div>
+
+
+            <!-- TOOLBAR -->
+            <div class="toolbar">
+
+                <div id="tabs">
+
+                    <button class="active" data-cat="all">
+                        Barchasi
+                    </button>
+
+                    <button data-cat="kostyum">
+                        Kostyumlar
+                    </button>
+
+                    <button data-cat="koylak">
+                        Ko‘ylaklar
+                    </button>
+
+                    <button data-cat="ustki">
+                        Ustki kiyim
+                    </button>
+
+                    <button data-cat="komplekt">
+                        Komplektlar
+                    </button>
+
+                </div>
+
+
+                <div>
+
+                    <input id="search" placeholder="⌕ Mahsulot qidirish...">
+
+                    <select id="sort">
+
+                        <option value="recommended">
+                            Tavsiya etilgan
+                        </option>
+
+                        <option value="new">
+                            Yangilari
+                        </option>
+
+                        <option value="low">
+                            Arzonidan
+                        </option>
+
+                        <option value="high">
+                            Qimmatidan
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="filters">
+
+                <button>
+                    O‘lcham ▾
+                </button>
+
+                <button>
+                    Rang ▾
+                </button>
+
+                <button>
+                    Chegirma ▾
+                </button>
+
+                <span id="count"></span>
+
+            </div>
+
+
+            <div class="grid" id="products"></div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="split" id="about">
+
+            <div>
+
+                <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1200&q=88"
+                    alt="TIMA SHOP">
+
+            </div>
+
+            <div>
+
+                <small class="eyebrow">
+                    — BIZ HAQIMIZDA
+                </small>
+
+                <h2>
+                    Uslub — bu<br>
+                    <em>o‘zingiz bo‘lish.</em>
+                </h2>
+
+                <p>
+                    TIMA SHOP’da kundalik hayotingizga mos,
+                    zamonaviy erkaklar kiyimlarini jamladik.
+                    Biz uchun qulay tanlov, aniq ma’lumot va
+                    samimiy xizmat muhim.
+                </p>
+
+                <a class="btn" target="_blank" href="https://instagram.com/tima_shop">
+                    Instagram sahifamiz ↗
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHY TIMA -->
+        <section class="section why">
+
+            <div class="center">
+
+                <small class="eyebrow">
+                    — NIMA UCHUN TIMA SHOP?
+                </small>
+
+                <h2>
+                    Tanlovingizga <em>ishonch.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="benefits">
+
+                <article>
+                    <b>01</b>
+                    <h3>3 yillik tajriba</h3>
+                    <p>
+                        Moda va mijoz ehtiyojlarini yaxshi biladigan jamoa.
+                    </p>
+                </article>
+
+                <article>
+                    <b>02</b>
+                    <h3>31 000+ mijoz</h3>
+                    <p>
+                        Bizni tanlagan minglab xaridorlar ishonchi.
+                    </p>
+                </article>
+
+                <article>
+                    <b>03</b>
+                    <h3>Yetkazib berish</h3>
+                    <p>
+                        O‘zbekiston bo‘ylab buyurtmalarni yuboramiz.
+                    </p>
+                </article>
+
+                <article>
+                    <b>04</b>
+                    <h3>Qulay buyurtma</h3>
+                    <p>
+                        Sayt, Telegram, WhatsApp yoki Instagram orqali.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- REVIEWS -->
+        <section class="section">
+
+            <div class="heading">
+
+                <div>
+
+                    <small class="eyebrow">
+                        — MIJOZLAR FIKRI
+                    </small>
+
+                    <h2>
+                        Ular biz haqimizda <em>nima deydi?</em>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="reviews">
+
+                <article>
+                    ★★★★★
+
+                    <p>
+                        “Kiyim sifati juda yaxshi,
+                        rasmdagidan ham chiroyli.”
+                    </p>
+
+                    <b>
+                        — Madina, Toshkent
+                    </b>
+                </article>
+
+
+                <article>
+                    ★★★★★
+
+                    <p>
+                        “Yetkazib berish tez bo‘ldi.
+                        O‘lcham bo‘yicha maslahat ham berishdi.”
+                    </p>
+
+                    <b>
+                        — Aziz, Samarqand
+                    </b>
+                </article>
+
+
+                <article>
+                    ★★★★★
+
+                    <p>
+                        “Komplekt sifatida olganim juda yoqdi.
+                        Yana buyurtma qilaman.”
+                    </p>
+
+                    <b>
+                        — Bekzod, Toshkent
+                    </b>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- INSTAGRAM -->
+        <section class="section insta">
+
+            <div class="center">
+
+                <small class="eyebrow">
+                    — @TIMA_SHOP
+                </small>
+
+                <h2>
+                    Instagramdagi <em>obrazlar.</em>
+                </h2>
+
+            </div>
+
+            <div class="instaGrid"></div>
+
+        </section>
+
+
+        <!-- FAQ -->
+        <section class="section faq" id="contact">
+
+            <div class="heading">
+
+                <div>
+
+                    <small class="eyebrow">
+                        — SAVOLLAR
+                    </small>
+
+                    <h2>
+                        Ko‘p beriladigan <em>savollar.</em>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="faqList">
+
+                <button>
+                    Yetkazib berish qancha vaqt oladi?
+                    <b>+</b>
+
+                    <p>
+                        Buyurtma tasdiqlangandan keyin
+                        manzilga qarab muddat belgilanadi.
+                    </p>
+                </button>
+
+
+                <button>
+                    Viloyatlarga yuborasizlarmi?
+                    <b>+</b>
+
+                    <p>
+                        Ha, O‘zbekiston bo‘ylab yetkazib berish mavjud.
+                    </p>
+                </button>
+
+
+                <button>
+                    Qanday o‘lcham tanlash kerak?
+                    <b>+</b>
+
+                    <p>
+                        Mahsulot sahifasidagi o‘lchamlar
+                        jadvalidan foydalaning.
+                    </p>
+                </button>
+
+
+                <button>
+                    Almashtirish mumkinmi?
+                    <b>+</b>
+
+                    <p>
+                        Shartlar buyurtma tasdiqlanishidan oldin
+                        operator tomonidan tushuntiriladi.
+                    </p>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="brand">
+
+            <i>T</i>
+
+            <span>
+                <b>TIMA<span>SHOP</span></b>
+                <small>STYLE FOR EVERY DAY</small>
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <b>Katalog</b>
+
+            <a href="#catalog">
+                Barchasi
+            </a>
+
+            <a href="#catalog">
+                Kostyumlar
+            </a>
+
+            <a href="#catalog">
+                Komplektlar
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <b>Aloqa</b>
+
+            <a target="_blank" href="https://t.me/TIMA_SHOP_UZ">
+                Telegram
+            </a>
+
+            <a target="_blank" href="https://instagram.com/tima_shop">
+                Instagram
+            </a>
+
+            <a href="https://wa.me/" target="_blank">
+                WhatsApp
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <b>Yordam</b>
+
+            <a id="sizeGuide">
+                O‘lchamlar jadvali
+            </a>
+
+            <a href="#contact">
+                FAQ
+            </a>
+
+        </div>
+
+
+        <small>
+            © 2026 TIMA SHOP. Barcha huquqlar himoyalangan.
+        </small>
+
+    </footer>
+
+
+    <!-- FLOATING BUTTONS -->
+    <div class="floating">
+
+        <a href="https://t.me/TIMA_SHOP_UZ" target="_blank">
+            ✈
+        </a>
+
+        <a href="https://wa.me/" target="_blank">
+            ◔
+        </a>
+
+    </div>
+
+
+    <!-- PRODUCT MODAL -->
+    <div class="modal" id="productModal">
+
+        <div class="backdrop"></div>
+
+        <div class="box">
+
+            <button class="close">
+                ×
+            </button>
+
+            <div id="productDetail"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CART -->
+    <div class="drawer" id="cartDrawer">
+
+        <div class="backdrop"></div>
+
+        <aside>
+
+            <button class="close">
+                ×
+            </button>
+
+            <h2>
+                Savat
+            </h2>
+
+            <div id="cartItems"></div>
+
+            <div class="total">
+
+                <b>
+                    Jami
+                </b>
+
+                <strong id="total">
+                    0 so‘m
+                </strong>
+
+                <button class="btn" id="checkout">
+                    Buyurtmani rasmiylashtirish →
+                </button>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+
+    <!-- CHECKOUT -->
+    <div class="modal" id="checkoutModal">
+
+        <div class="backdrop"></div>
+
+        <div class="box form">
+
+            <button class="close">
+                ×
+            </button>
+
+            <small class="eyebrow">
+                — BUYURTMA
+            </small>
+
+            <h2>
+                Buyurtmani <em>rasmiylashtirish.</em>
+            </h2>
+
+
+            <form id="orderForm">
+
+                <input required name="name" placeholder="Ism va familiya">
+
+                <input required name="phone" placeholder="+998 90 123 45 67">
+
+                <input required name="city" placeholder="Shahar / viloyat">
+
+                <input required name="address" placeholder="Manzil">
+
+                <textarea name="note" placeholder="Qo‘shimcha izoh"></textarea>
+
+                <div id="summary"></div>
+
+                <button class="btn">
+                    BUYURTMA BERISH →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- SIZE MODAL -->
+    <div class="modal" id="sizeModal">
+
+        <div class="backdrop"></div>
+
+        <div class="box">
+
+            <button class="close">
+                ×
+            </button>
+
+            <small class="eyebrow">
+                — O‘LCHAM
+            </small>
+
+            <h2>
+                O‘lchamlar <em>jadvali.</em>
+            </h2>
+
+
+            <table>
+
+                <tr>
+                    <th>O‘lcham</th>
+                    <th>Ko‘krak</th>
+                    <th>Bel</th>
+                    <th>Bo‘y</th>
+                </tr>
+
+                <tr>
+                    <td>S</td>
+                    <td>88–96</td>
+                    <td>74–82</td>
+                    <td>165–175</td>
+                </tr>
+
+                <tr>
+                    <td>M</td>
+                    <td>96–104</td>
+                    <td>82–90</td>
+                    <td>170–180</td>
+                </tr>
+
+                <tr>
+                    <td>L</td>
+                    <td>104–112</td>
+                    <td>90–98</td>
+                    <td>175–185</td>
+                </tr>
+
+                <tr>
+                    <td>XL</td>
+                    <td>112–120</td>
+                    <td>98–106</td>
+                    <td>180–190</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+    <div class="searchOverlay" id="searchOverlay">
+
+        <button class="close">
+            ×
+        </button>
+
+        <input id="globalSearch" placeholder="Mahsulot qidiring...">
+
+        <div id="results"></div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
